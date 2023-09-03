@@ -68,7 +68,7 @@ public class NoticeDAO {
         DBConnect con = new MariaDBCon();
         conn = con.connect();
         if(conn!=null){
-            System.out.println("PostgreSQL 연결 성공");
+            System.out.println("MariaDB 연결 성공");
         }
 
         try {
@@ -112,13 +112,8 @@ public class NoticeDAO {
         int cnt = 0;
         DBConnect con = new MariaDBCon();
         conn = con.connect();
-        if(conn!=null){
-            System.out.println("PostgreSQL 연결 성공");
-        }
-
-        String sql = "update notice set title=?, content=? where no=?";
         try {
-            pstmt = conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement(DBConnect.NOTICE_UPDATE);
             pstmt.setString(1, noti.getTitle());
             pstmt.setString(2, noti.getContent());
             pstmt.setInt(3, noti.getNo());
@@ -135,13 +130,9 @@ public class NoticeDAO {
         int cnt = 0;
         DBConnect con = new MariaDBCon();
         conn = con.connect();
-        if(conn!=null){
-            System.out.println("PostgreSQL 연결 성공");
-        }
 
-        String sql = "delete from notice where no=?";
         try {
-            pstmt = conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement(DBConnect.NOTICE_DELETE);
             pstmt.setInt(1, no);
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -156,9 +147,6 @@ public class NoticeDAO {
         int cnt = 0;
         DBConnect con = new MariaDBCon();
         conn = con.connect();
-        if(conn!=null){
-            System.out.println("PostgreSQL 연결 성공");
-        }
 
         try {
             pstmt = conn.prepareStatement(DBConnect.NOTICE_COUNT);
@@ -178,10 +166,6 @@ public class NoticeDAO {
         int cnt = 0;
         DBConnect con = new MariaDBCon();
         conn = con.connect();
-        if(conn!=null){
-            System.out.println("PostgreSQL 연결 성공");
-        }
-
         try {
             if(searchType.equals("title")) {
                 pstmt = conn.prepareStatement(DBConnect.NOTICE_COUNT_TITLE);
@@ -241,10 +225,5 @@ public class NoticeDAO {
             con.close(rs, pstmt, conn);
         }
         return notiList;
-    }
-
-    public int getStartPost(String searchType, String kwd){
-        int startPost = 0;
-        return startPost;
     }
 }

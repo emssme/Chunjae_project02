@@ -29,9 +29,6 @@ public interface DBConnect {
     //카테고리별 목록
     final static String PRODUCT_SELECT_CATE = "select * from product where cate_id=? order by pro_no";
 
-    //신상품
-    final static String PRODUCT_SELECT_NEW = "select * from product order by pro_no desc limit 5";
-
     //베스트 상품
     final static String PRODUCT_SELECT_BEST = "select * from product where pro_no in (select pro_no from (select pro_no, sum(amount) from payment group by pro_no order by amount desc limit 3) subquery)";
     // 상품 리스트 페이징
@@ -44,9 +41,6 @@ public interface DBConnect {
 
     //상품번호+상품카테고리 pro_cate_no
     final static String PRODUCT_INSERT_UPDATE = "UPDATE product SET pro_cate_no = CONCAT(cate_id,'-',pro_no) where pro_no IN (select pro_no FROM (select pro_no from product order by regdate desc LIMIT 1) AS tmp)";
-
-    //상품 추가 정보
-    final static String PRODUCT_INFO = "insert into addinfo values(default, ?, ?, ?, default)";
 
     //상품 수정
     final static String PRODUCT_UPDATE = "update product set price=?, title=?, description=?, pro_content=? where pro_no=?";

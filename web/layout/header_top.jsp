@@ -7,9 +7,4 @@
     <div class="humberger__menu__logo">
         <a href="${path}"><img src="${path}/img/logo.png" alt="레몬북스 로고" style="height: 80px;"></a>
     </div>
-    <div class="humberger__menu__cart">
-        <ul>
-            <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
-        </ul>
-    </div>
 </div>

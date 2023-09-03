@@ -325,61 +325,6 @@ public class ProductDAO {
         return amount;
     }
 
-    public List<AdminHotProVO> getAdminHotProduct() {
-        List<AdminHotProVO> hotList = new ArrayList<>();
-        DBConnect con = new MariaDBCon();
-        conn = con.connect();
-        try {
-            pstmt = conn.prepareStatement(DBConnect.ADMIN_HOT_PRODUCT_LIST);
-            rs = pstmt.executeQuery();
-            while(rs.next()) {
-                AdminHotProVO adminHotProduct = new AdminHotProVO();
-                adminHotProduct.setTitle(rs.getString("title"));
-                adminHotProduct.setSum_amount(rs.getInt("sum_amount"));
-                adminHotProduct.setSum_price(rs.getInt("sum_price"));
-                hotList.add(adminHotProduct);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return hotList;
-    }
-
-    //상품 리뷰 불러오기
-    public List<Review> getReview(int pro_no){
-        List<Review> reviewList = new ArrayList<>();
-        DBConnect con = new MariaDBCon();
-
-        try {
-            conn = con.connect();
-            pstmt = conn.prepareStatement(DBConnect.REVIEW_SELECT);
-            pstmt.setInt(1, pro_no);
-            rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                Review rev = new Review();
-                rev.setRev_no(rs.getInt("rev_no"));
-                rev.setMem_id(rs.getString("mem_id"));
-                rev.setPay_no(rs.getInt("pay_no"));
-                rev.setPro(rs.getString("pro"));
-                rev.setStar(rs.getInt("star"));
-                rev.setContent(rs.getString("content"));
-
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                Date d = sdf.parse(rs.getString("regdate"));
-                rev.setRegdate(sdf.format(d));
-
-                rev.setPro_no(rs.getInt("pro_no"));
-                reviewList.add(rev);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        } finally {
-            con.close(rs,pstmt,conn);
-        } return reviewList;
-    }
 
     //출고 관리
     public int addReceive(Receive rec){

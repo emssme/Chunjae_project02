@@ -16,24 +16,6 @@ public class DeliveryVO {
     private String res_date;
     private String del_code;
 
-    @Override
-    public String toString() {
-        return "DeliveryVO{" +
-                "del_no=" + del_no +
-                ", title='" + title + '\'' +
-                ", custom_id='" + custom_id + '\'' +
-                ", pay_resdate='" + pay_resdate + '\'' +
-                ", del_addr='" + del_addr + '\'' +
-                ", cus_tel='" + cus_tel + '\'' +
-                ", del_com='" + del_com + '\'' +
-                ", del_tel='" + del_tel + '\'' +
-                ", del_state=" + del_state +
-                ", del_date='" + del_date + '\'' +
-                ", res_date='" + res_date + '\'' +
-                ", del_code='" + del_code + '\'' +
-                '}';
-    }
-
     public int getDel_no() {
         return del_no;
     }
@@ -138,5 +120,23 @@ public class DeliveryVO {
 
     public void setDel_code(String del_code) {
         this.del_code = del_code;
+    }
+
+    @Override
+    public String toString() {
+        return "DeliveryVO{" +
+                "del_no=" + del_no +
+                ", title='" + title + '\'' +
+                ", custom_id='" + custom_id + '\'' +
+                ", pay_resdate='" + pay_resdate + '\'' +
+                ", del_addr='" + del_addr + '\'' +
+                ", cus_tel='" + cus_tel + '\'' +
+                ", del_com='" + del_com + '\'' +
+                ", del_tel='" + del_tel + '\'' +
+                ", del_state=" + del_state +
+                ", del_date='" + del_date + '\'' +
+                ", res_date='" + res_date + '\'' +
+                ", del_code='" + del_code + '\'' +
+                '}';
     }
 }

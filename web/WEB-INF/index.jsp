@@ -15,24 +15,14 @@
 </head>
 
 <body>
-<!-- Page Preloder -->
 <div id="preloder">
     <div class="loader"></div>
 </div>
 
-<!-- Humberger Begin -->
 <%@include file="/layout/header_top.jsp"%>
-<!-- Humberger End -->
-
-<!-- Header Section Begin -->
 <%@include file="/layout/header.jsp"%>
-<!-- Header Section End -->
-
-<!-- Hero Section Begin -->
 <%@include file="../Main_contents/main_banner.jsp"%>
-<!-- Hero Section End -->
 
-<!-- Featured Section Begin -->
 <section class="featured spad">
     <div class="container">
         <div class="row">
@@ -59,9 +49,7 @@
         </div>
     </div>
 </section>
-<!-- Featured Section End -->
 
-<!-- Blog Section Begin -->
 <section class="from-blog spad">
     <div class="container">
         <div class="row">
@@ -108,13 +96,6 @@
         </div>
     </div>
 </section>
-
-
-<!-- Blog Section End -->
-
-<!-- Footer Section Begin -->
 <%@include file="/layout/footer.jsp"%>
-<!-- Footer Section End -->
 </body>
-
 </html>

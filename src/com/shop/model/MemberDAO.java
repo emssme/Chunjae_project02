@@ -11,8 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-// 완료
 public class MemberDAO {
     static Connection conn = null;
     static PreparedStatement pstmt = null;
